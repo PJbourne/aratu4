@@ -6,16 +6,16 @@ from django.http import HttpResponse
 #from django.shortcuts import render
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'templates/index.html')
 
 def previsao(request):
-    return render(request, 'previsao.html')
+    return render(request, 'templates/previsao.html')
 
 def mapadecalor(request):
-    return render(request, 'mapadecalor.html')
+    return render(request, 'templates/mapadecalor.html')
 
 def relatorio(request):
-    return render(request, 'relatorio.html')
+    return render(request, 'templates/relatorio.html')
 
 def data(request):
-    return render(request, 'data.html')
+    return render(request, 'templates/data.html')
