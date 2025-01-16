@@ -6,7 +6,7 @@ from django.http import HttpResponse
 #from django.shortcuts import render
 
 def home(request):
-    return render(request, 'templates/index.html')
+    return HttpResponse("<h1>Bem-vindo à Home!</h1>")
 
 def previsao(request):
     return render(request, 'templates/previsao.html')
