@@ -26,5 +26,9 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('clients_profiles.urls')),  # Mapeia para as URLs do app
+    path('', include('clients_profiles.urls')),
+    path('forecast/', include('clients_profiles.urls')),
+    path('heatmap/', include('clients_profiles.urls')),
+    path('report/', include('clients_profiles.urls')),
+    path('data/', include('clients_profiles.urls')),
 ]
