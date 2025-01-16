@@ -9,13 +9,13 @@ def home(request):
     return HttpResponse("<h1>Bem-vindo à Home!</h1>")
 
 def previsao(request):
-    return render(request, 'templates/previsao.html')
+    return render(request, 'clients_profiles/previsao.html')
 
 def mapadecalor(request):
-    return render(request, 'templates/mapadecalor.html')
+    return render(request, 'clients_profiles/mapadecalor.html')
 
 def relatorio(request):
-    return render(request, 'templates/relatorio.html')
+    return render(request, 'clients_profiles/relatorio.html')
 
 def data(request):
-    return render(request, 'templates/data.html')
+    return render(request, 'clients_profiles/data.html')
