@@ -1,5 +1,7 @@
 import pandas as pd
 import folium
+from io import StringIO
+from django.http import JsonResponse
 from django.core.management.base import BaseCommand
 from sensor.models import AirQualityData
 
@@ -43,9 +45,8 @@ class Command(BaseCommand):
         heat_data = [[loc[0], loc[1], pm] for loc, pm in zip(locations, pm_values)]
         HeatMap(heat_data, max_intensity=100, radius=8).add_to(m)
 
-        # Salvar o mapa como HTML
-        output_file = f'{pm_type}_heatmap.html'
-        m.save(output_file)
+        # Salvar o mapa como HTML em uma string
+        map_html = m._repr_html_()  # Folium pode gerar diretamente o HTML como string
 
-        # Mensagem de sucesso
-        self.stdout.write(self.style.SUCCESS(f'Heatmap for {pm_type} generated successfully and saved as {output_file}!'))
+        # Retorna o HTML gerado
+        self.stdout.write(self.style.SUCCESS(f'Mapa gerado com sucesso! HTML embutido abaixo:\n{map_html}'))

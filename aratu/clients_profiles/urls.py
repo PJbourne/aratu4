@@ -17,11 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from .views import generate_heatmap
 
 urlpatterns = [
     path('', views.home, name='home'),
     path('forecast/', views.previsao, name='previsao'),
     path('heatmap/', views.mapadecalor, name='mapadecalor'),
+    path('heatmap/', generate_heatmap, name='generate_heatmap'),
     path('report/', views.relatorio, name='relatorio'),
     path('data/', views.data, name='data'),
 ]

@@ -45,6 +45,26 @@
         </select>
         <button onclick="generateHeatmap()">Gerar Heatmap</button>
     </div>
+    
+    <div id="map-container">
+        <!-- O mapa será inserido aqui dinamicamente -->
+    </div>
+    <script>
+        function generateHeatmap() {
+        const pmType = document.getElementById('pmType').value;
+        fetch(`/clients_profiles/heatmap/?pm_type=${pmType}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.error);
+                } else {
+                    document.getElementById('map-container').innerHTML = data.map_html;
+                }
+            })
+            .catch(error => alert('Erro ao gerar o heatmap: ' + error));
+        }
+    </script>
+    
 </body>
 </html>
 
