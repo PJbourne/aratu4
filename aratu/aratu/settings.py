@@ -26,6 +26,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+
+LOGIN_REDIRECT_URL = '/'  # Redireciona para a página inicial após o login
+LOGOUT_REDIRECT_URL = '/'  # Redireciona para a página inicial após o logout
+
+
 # Application definition
 
 INSTALLED_APPS = [
