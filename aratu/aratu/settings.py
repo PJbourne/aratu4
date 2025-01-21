@@ -24,14 +24,13 @@ SECRET_KEY = 'django-insecure-%@c8+z52(t)pp#4ekh%lia$itbmn-sgr+a7ohx(9hng76$45zk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ifmg.aratu.net', '131.255.252.77', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
+
+LOGIN_REDIRECT_URL = '/'  # Redireciona para a página inicial após o login
+LOGOUT_REDIRECT_URL = '/'  # Redireciona para a página inicial após o logout
 
 # Application definition
-
-from .config import DATABASES
-DATABASES = DATABASES
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -90,10 +89,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'aratu.urls'
 
+import os
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -109,7 +110,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'aratu.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#database
+# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators

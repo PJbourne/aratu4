@@ -23,7 +23,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('forecast/', views.previsao, name='previsao'),
     path('heatmap/', views.mapadecalor, name='mapadecalor'),
-    path('heatmap/', generate_heatmap, name='generate_heatmap'),
+    path('generate-heatmap/', generate_heatmap, name='generate_heatmap'),
     path('report/', views.relatorio, name='relatorio'),
     path('data/', views.data, name='data'),
 ]
